@@ -22,3 +22,13 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
+
+.site-title {
+  text-align: center;
+}
+
+.textbox {
+  border: 1px solid var(--secondary);
+  padding: 1em;
+  margin-bottom: 1em;
+}
