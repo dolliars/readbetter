@@ -1,0 +1,24 @@
+:root {
+  --clr-white: #fff;
+  --clr-black: #000;
+  --clr-grey: grey;
+  --clr-teal: #194256;
+  --clr-offwhite: #fce9ed;
+  --clr-lime: #7df1ca;
+  --clr-pink: #f17da4;
+
+  --primary: var(--clr-lime);
+  --secondary: var(--clr-pink);
+  --highlight: var(--clr-pink);
+
+  --backdrop : var(--clr-teal);
+  --surface: var(--clr-offwhite);
+  
+  --background: var(--backdrop);
+  --foreground: var(--surface);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
