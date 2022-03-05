@@ -27,6 +27,11 @@ body {
   text-align: center;
 }
 
+.main {
+  margin: 0 auto;
+  width: 90vmin;
+}
+
 .textbox {
   border: 1px solid var(--secondary);
   padding: 1em;
