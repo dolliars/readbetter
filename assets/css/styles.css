@@ -21,19 +21,53 @@
 body {
   color: var(--foreground);
   background: var(--background);
+  font-family: 'Poppins', sans-serif;
 }
 
-.site-title {
-  text-align: center;
+header {
+  background: var(--background);
+  font-family: 'Playfair Display', serif;
 }
 
-.main {
-  margin: 0 auto;
-  width: 90vmin;
+.article-img {
+  object-fit: cover;
+  width: 100%;
+  height: 90vh;
+  margin: 0;
+  padding: 0;
 }
 
-.textbox {
-  border: 1px solid var(--secondary);
-  padding: 1em;
-  margin-bottom: 1em;
+@media screen and (min-width: 768px) {
+  header {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .article-img {
+    float: left;
+    height: 100vh;
+    width: 49vw;
+  }
+  
+  .article-titles {
+    float: right;
+    width: 49vw;
+    height: 100vh;
+    padding: 2vh 3vh;
+    display: flex;
+  }
+  
+  .headlines {
+    margin: auto;
+  }
+  
+  .title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 2rem;
+  }
 }
+
