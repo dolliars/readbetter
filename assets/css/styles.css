@@ -101,6 +101,7 @@ header {
 }
 
 .text {
+  background: var(--card);
   overflow-wrap: anywhere;
   position: absolute;
   display: grid;
