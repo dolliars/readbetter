@@ -89,19 +89,46 @@ header {
 
 .text-container {
   font-size: var(--font-regular);
+  display: grid;
+  width: 100vw;
+  height: 100vh;
 }
 
 .textbox {
   background: var(--card);
+  position: relative;
+  margin: 1ch;
 }
 
-@media (min-width: 768px) {
-  .headlines {
-    margin: 0;
+.text {
+  overflow-wrap: anywhere;
+  position: absolute;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding: 1ch;
+}
+
+footer {
+  min-height: 5rem;
+}
+
+.footer-text {
+  text-align: center;
+  margin: 1em;
+}
+
+@media screen and (min-width: 425px) {
+  .text {
+    overflow-wrap: break-word;
   }
 }
 
 @media screen and (min-width: 768px) {
+  .headlines {
+    margin: 0;
+  }
+
   .article-img {
     float: left;
     height: 100vh;
@@ -124,5 +151,23 @@ header {
   .subtitle {
     font-size: var(--font-large);
   }
+
+  .text-container {
+    margin: auto;
+    width: 98vw;
+    height: 98vh;
+  }
+
+  .textbox {
+    height: 70%;
+    width: 80%;
+    margin: auto;
+  }
 }
 
+@media screen and (min-width: 1024px) {
+  .textbox {
+    height: 30ch;
+    width: 40ch;
+  }
+}
