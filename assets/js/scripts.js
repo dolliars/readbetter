@@ -21,8 +21,7 @@ const text = textElement.innerHTML.replace(/\s+/g,' ').trim();
 let targetDiv = document.getElementById('primary-textbox');
 
 // We split the full text every X characters which returns an array
-// TODO: change this to split on complete word that is less than X characters
-let splitTextArr = text.match(/.{1,183}/g);
+let splitTextArr = text.match(/(\S+\s*){1,33}/g);
 
 splitTextArr.forEach(line => {
   let newParagraph = document.createElement('p');
@@ -36,5 +35,15 @@ splitTextArr.forEach(line => {
 
 });
 
+//document.getElementById("item").style.zIndex = "7";
+
 // Hide the full-text after we add the new paragraphs
 textElement.style.display = 'none';
+
+// reverse the z-index of paragraphs so they appear in order
+let paragraphArr = document.getElementsByClassName('text');
+let nParagraphs = paragraphArr.length;
+
+for (let i = 1; i <= nParagraphs; i++) {
+  paragraphArr[i].style.zIndex = (nParagraphs - i);
+}
