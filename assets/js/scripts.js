@@ -44,6 +44,6 @@ textElement.style.display = 'none';
 let paragraphArr = document.getElementsByClassName('text');
 let nParagraphs = paragraphArr.length;
 
-for (let i = 1; i <= nParagraphs; i++) {
+for (let i = 0; i <= nParagraphs - 1; i++) {
   paragraphArr[i].style.zIndex = (nParagraphs - i);
 }
