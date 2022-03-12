@@ -49,6 +49,7 @@ a {
   color: var(--primary);
   font-size: var(--font-regular);
   transition: border 0.2s ease;
+  text-decoration: none;
 }
 
 a:hover, a:focus, a:active {
@@ -124,6 +125,13 @@ main {
   position: absolute;
   bottom: 1em;
   right: 0.75em;
+}
+
+.position-container {
+  position: absolute;
+  bottom: 1em;
+  left: 0.75em;
+  font-size: smaller;
 }
 
 .btn {

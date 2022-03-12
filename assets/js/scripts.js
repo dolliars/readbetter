@@ -22,7 +22,23 @@ let fontSize = parseFloat(fontSizeString);
 let numberOfWordsToSplitOn = 33;
 
 if (fontSize > 33) {
-  numberOfWordsToSplitOn = 16;
+  numberOfWordsToSplitOn = 13;
+}
+
+if (fontSize > 27) {
+  numberOfWordsToSplitOn = 28;
+}
+
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+
+
+if (vw > 767 && fontSize > 31) {
+  numberOfWordsToSplitOn = 55;
+}
+
+if (vw > 1079 && fontSize > 39) {
+  numberOfWordsToSplitOn = 65;
 }
 
 // trim extra spaces in full text
@@ -61,25 +77,25 @@ for (let i = 0; i <= nParagraphs - 1; i++) {
 const textArr = Array.from(paragraphHtmlCollection);
 const firstElement = textArr.shift(); //rm first element from array
 
-// Set button z-index so it's greater than all .text elements
-let btnContainer = document.getElementsByClassName('btn-container');
+// Set button and position z-index so they are greater than all .text elements
+const btnContainer = document.getElementsByClassName('btn-container');
+const positionContainer = document.getElementById('position-container');
+
 btnContainer[0].style.zIndex = (nParagraphs + 1);
+positionContainer.style.zIndex = (nParagraphs + 2);
 
-textArr.forEach((el, index) => {
-  //console.log(index, el);
-})
-
+//textArr.forEach((el, index) => { console.log(index, el);})
 
 const btns = document.getElementById('btns-container');
-let position = 0;
 const min = 0;
 const max = nParagraphs - 1;
+let position = 0;
 
 btns.addEventListener('click', (event) => {
   // boolean
   const isButton = event.target.nodeName === 'BUTTON';
+
   if (isButton) {
-    //on first click, take the position and hide it, and then update
     if (position < max && event.target.classList.contains('js-forward')) {
       textArr[position].style.opacity = 0;
       position += 1;
@@ -88,7 +104,11 @@ btns.addEventListener('click', (event) => {
       position -= 1;
     }
   }
-  console.log(position);
-  console.log(textArr[position]);
+
+  // Update numerator
+  const numerator = document.getElementById('numerator');
+  numerator.innerHTML = position + 1;
 })
 
+const denominator = document.getElementById('denominator');
+denominator.innerHTML = nParagraphs;
