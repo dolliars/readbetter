@@ -48,6 +48,11 @@
 a {
   color: var(--primary);
   font-size: var(--font-regular);
+  transition: border 0.25s ease;
+}
+
+a:hover, a:focus, a:active {
+  border: 1px dashed var(--primary);
 }
 
 body {
