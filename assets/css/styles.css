@@ -62,6 +62,10 @@ header {
   font-family: 'Playfair Display', serif;
 }
 
+main {
+  padding-bottom: 2rem;
+}
+
 .article-img {
   object-fit: cover;
   width: 100%;
@@ -113,9 +117,46 @@ header {
 
 .btn-container {
   position: absolute;
-  bottom: 0;
-  right: 0.5em;
+  bottom: 1em;
+  right: 0.75em;
 }
+
+.btn {
+  background: var(--foreground);
+  color: var(--background);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  transition: background-color 0.25s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.btn:hover, .btn:active {
+  background: var(--background);
+  color: var(--foreground);
+  border: 1px dashed var(--foreground);
+}
+
+.btn:focus {
+  background: var(--background);
+  color: var(--foreground);
+  border: 1px dashed var(--primary);
+}
+
+.btn-back {
+  margin-right: 1em;
+}
+
+.icon {
+  align-self: center;
+}
+
+.material-icons.md-36 { font-size: 36px; }
+
 
 footer {
   min-height: 5rem;
@@ -153,7 +194,7 @@ footer {
   
   .title {
     font-size: var(--font-largest);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
   
   .subtitle {
