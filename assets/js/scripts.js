@@ -64,3 +64,31 @@ const firstElement = textArr.shift(); //rm first element from array
 // Set button z-index so it's greater than all .text elements
 let btnContainer = document.getElementsByClassName('btn-container');
 btnContainer[0].style.zIndex = (nParagraphs + 1);
+
+textArr.forEach((el, index) => {
+  //console.log(index, el);
+})
+
+
+const btns = document.getElementById('btns-container');
+let position = 0;
+const min = 0;
+const max = nParagraphs - 1;
+
+btns.addEventListener('click', (event) => {
+  // boolean
+  const isButton = event.target.nodeName === 'BUTTON';
+  if (isButton) {
+    //on first click, take the position and hide it, and then update
+    if (position < max && event.target.classList.contains('js-forward')) {
+      textArr[position].style.opacity = 0;
+      position += 1;
+    } else if (position > min && event.target.classList.contains('js-back')) {
+      textArr[position - 1].style.opacity = 1;
+      position -= 1;
+    }
+  }
+  console.log(position);
+  console.log(textArr[position]);
+})
+

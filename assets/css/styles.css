@@ -48,7 +48,7 @@
 a {
   color: var(--primary);
   font-size: var(--font-regular);
-  transition: border 0.25s ease;
+  transition: border 0.2s ease;
 }
 
 a:hover, a:focus, a:active {
@@ -156,8 +156,9 @@ main {
   margin-right: 1em;
 }
 
-.icon {
+.arrow-icons {
   align-self: center;
+  pointer-events: none;
 }
 
 .material-icons.md-36 { font-size: 36px; }
