@@ -63,9 +63,13 @@ body {
 }
 
 header {
-  min-height: 100vh;
-  background: var(--background);
   font-family: 'Playfair Display', serif;
+  margin-bottom: 1em;
+}
+
+.article-info {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 main {
@@ -74,8 +78,9 @@ main {
 
 .article-img {
   object-fit: cover;
+  object-position: top;
   width: 100%;
-  height: 70vh;
+  min-height: 70vh;
   margin: 0;
   padding: 0;
 }
@@ -169,8 +174,9 @@ main {
   pointer-events: none;
 }
 
-.material-icons.md-36 { font-size: 36px; }
-
+.material-icons.md-36 {
+  font-size: 36px;
+}
 
 footer {
   min-height: 5rem;
@@ -188,19 +194,21 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+  .article-info {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .headlines {
     margin: 0;
   }
 
   .article-img {
-    float: left;
-    height: 100vh;
-    width: 49vw;
+    min-height: 100vh;
+    width: 50vw;
   }
   
   .article-titles {
-    float: right;
-    width: 49vw;
+    width: 50vw;
     height: 100vh;
     padding: 2vh 3vh;
     display: flex;
