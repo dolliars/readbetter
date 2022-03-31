@@ -1,12 +1,9 @@
 /*******************************************************************************
- * This JS get the paragraph containing the full text and splits it after a
- * certain number of characters.
+ * This JS gets the paragraph containing the full text and splits it into new
+ * paragraphs after a certain number of characters. It then creates new
+ * paragraphs for every split line and appends it to the primary textbox.
  *
- * It then creates new paragraphs for every split line and appends it to the
- * primary textbox.
- *
- * Finally, it will hide the full text element. The text will be used later
- * which is why it's not being removed
+ * It also hides the full text element which will be used in later development.
  *
  ******************************************************************************/
 
@@ -17,35 +14,41 @@ const textElement = document.getElementById('full-text');
 let fontSizeString = window.getComputedStyle(textElement).getPropertyValue('font-size');
 let fontSize = parseFloat(fontSizeString);
 
-// Default split is 33 words
-// if font size is larger than 33px, split text at 16 words
-let numberOfWordsToSplitOn = 33;
+// Default split
+let numberOfWordsToSplitOn = 42;
+let textbox = document.getElementById('primary-textbox');
+let area = textbox.offsetHeight * textbox.offsetWidth;
 
-if (fontSize > 33) {
-  numberOfWordsToSplitOn = 13;
+if (area > 100000) {
+  numberOfWordsToSplitOn = 50;
 }
 
-if (fontSize > 27) {
-  numberOfWordsToSplitOn = 28;
+if (area > 120000) {
+  numberOfWordsToSplitOn = 70;
 }
 
-const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
-
-
-if (vw > 767 && fontSize > 31) {
-  numberOfWordsToSplitOn = 55;
+if (area > 150000) {
+  numberOfWordsToSplitOn = 85;
 }
 
-if (vw > 1079 && fontSize > 39) {
-  numberOfWordsToSplitOn = 65;
+if (area > 250000) {
+  numberOfWordsToSplitOn = 110;
+}
+
+if (area > 500000) {
+  numberOfWordsToSplitOn = 120;
+}
+
+if (area > 600000) {
+  numberOfWordsToSplitOn = 145;
+}
+
+if (area > 700000) {
+  numberOfWordsToSplitOn = 160;
 }
 
 // trim extra spaces in full text
 const text = textElement.innerHTML.replace(/\s+/g,' ').trim();
-
-// Target to which we will append the new paragraphs
-let targetDiv = document.getElementById('primary-textbox');
 
 // Split the full text every X words
 let regex = new RegExp('(\\S+\\s*){1,' + numberOfWordsToSplitOn + '}', 'g' );
@@ -59,8 +62,8 @@ splitTextArr.forEach(line => {
   newParagraph.className = 'text';
   newParagraph.appendChild(newText);
 
-  targetDiv.appendChild(newParagraph);
-
+  // Target to which we will append the new paragraphs
+  textbox.appendChild(newParagraph);
 });
 
 // Hide the full-text after we add the new paragraphs
@@ -83,8 +86,6 @@ const positionContainer = document.getElementById('position-container');
 
 btnContainer[0].style.zIndex = (nParagraphs + 1);
 positionContainer.style.zIndex = (nParagraphs + 2);
-
-//textArr.forEach((el, index) => { console.log(index, el);})
 
 const btns = document.getElementById('btns-container');
 const min = 0;
