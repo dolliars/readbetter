@@ -6,7 +6,7 @@ An experiment with presenting text online.
 
 > *Every webpage shouldn't be like the last line of a Snellen chart*
 >
-> — me, a couple months ago.
+> — me, a couple years ago.
 
 I'm generally frustrated with reading things on the internet. I appreciate
 physical books because there is no mystery in the container. The moment I hold a
